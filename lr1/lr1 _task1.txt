@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:ex="http://example.org/">
+  <rdf:Description rdf:about="http://example.org/Brass">
+    <rdf:type rdf:resource="http://example.org/Alloy"/>
+    <ex:contains rdf:resource="http://example.org/Copper"/>
+    <ex:contains rdf:resource="http://example.org/Zinc"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/SPIEGEL">
+    <rdf:type rdf:resource="http://example.org/Magazine"/>
+    <ex:country rdf:resource="http://example.org/Germany"/>
+    <ex:headquarters rdf:resource="http://example.org/Hamburg"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/Essay">
+    <ex:hasPart rdf:resource="http://example.org/Introduction"/>
+    <ex:hasPart rdf:resource="http://example.org/MainBody"/>
+    <ex:hasPart rdf:resource="http://example.org/Conclusion"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/Pavlo">
+    <ex:knows>
+      <rdf:Description>
+        <rdf:subject rdf:resource="http://example.org/Olena"/>
+        <rdf:predicate rdf:resource="http://example.org/livesIn"/>
+        <rdf:object rdf:resource="http://example.org/Poltava"/>
+      </rdf:Description>
+    </ex:knows>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/Olena">
+    <ex:says>
+      <rdf:Description>
+        <rdf:subject rdf:resource="http://example.org/Friend"/>
+        <rdf:predicate rdf:resource="http://example.org/livesIn"/>
+        <rdf:object rdf:resource="http://example.org/Kyiv"/>
+      </rdf:Description>
+    </ex:says>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/Stefan">
+    <ex:thinks>
+      <rdf:Description rdf:about="http://example.org/Anna">
+        <ex:knows>
+          <rdf:Description rdf:about="http://example.org/Stefan">
+            <ex:knows>
+              <rdf:Description>
+                <rdf:subject rdf:resource="http://example.org/Father"/>
+                <rdf:predicate rdf:resource="http://example.org/isFatherOf"/>
+                <rdf:object rdf:resource="http://example.org/Anna"/>
+              </rdf:Description>
+            </ex:knows>
+          </rdf:Description>
+        </ex:knows>
+      </rdf:Description>
+    </ex:thinks>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/Ivan">
+    <ex:knows>
+      <rdf:Description>
+        <rdf:subject rdf:resource="http://example.org/Rome"/>
+        <rdf:predicate rdf:resource="http://example.org/isCapitalOf"/>
+        <rdf:object rdf:resource="http://example.org/Italy"/>
+      </rdf:Description>
+    </ex:knows>
+  </rdf:Description>
+
+</rdf:RDF>

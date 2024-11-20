@@ -1,0 +1,47 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT ?laureate ?name ?birthDate
+WHERE {
+  ?laureate dbo:award dbr:Nobel_Prize_in_Physics ;
+            rdfs:label ?name ;
+            dbo:birthDate ?birthDate .
+  FILTER(LANG(?name) = "en")
+}
+ORDER BY ASC(?birthDate)
+
+
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT ?university (COUNT(?laureate) AS ?laureatesCount)
+WHERE {
+  ?laureate dbo:award dbr:Nobel_Prize_in_Physics ;
+            dbo:almaMater ?university .
+}
+GROUP BY ?university
+ORDER BY DESC(?laureatesCount)
+LIMIT 10
+
+
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT (COUNT(DISTINCT ?laureate) AS ?immigrantCount)
+WHERE {
+  ?laureate dbo:award dbr:Nobel_Prize_in_Physics ;
+            dbo:birthPlace ?birthPlace ;
+            dbo:almaMater ?university .
+  ?birthPlace dbo:country ?birthCountry .
+  ?university dbo:country ?universityCountry .
+  
+  FILTER (?birthCountry != ?universityCountry)
+}
+
+
+

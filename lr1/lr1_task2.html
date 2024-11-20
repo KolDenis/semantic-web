@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжковий магазин - Веб-сторінка</title>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Book",
+      "name": "Мистецтво війни",
+      "author": {
+        "@type": "Person",
+        "name": "Сунь Цзи"
+      },
+      "datePublished": "2021-01-01",
+      "genre": "Військова стратегія",
+      "offers": {
+        "@type": "Offer",
+        "price": "120.00",
+        "priceCurrency": "UAH"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "80"
+      }
+    }
+    </script>
+</head>
+<body>
+
+<!-- RDFa -->
+<div vocab="http://schema.org/" typeof="Book">
+    <h2 property="name">Мистецтво війни</h2>
+    <p>Автор: <span property="author" typeof="Person">
+        <span property="name">Сунь Цзи</span>
+    </span></p>
+    <p>Жанр: <span property="genre">Військова стратегія</span></p>
+    <p>Дата публікації: <time property="datePublished" datetime="2021-01-01">1 січня 2021</time></p>
+    <p>Ціна: <span property="offers" typeof="Offer">
+        <span property="priceCurrency" content="UAH">₴</span><span property="price">120.00</span>
+    </span></p>
+    <p>Рейтинг: <span property="aggregateRating" typeof="AggregateRating">
+        <span property="ratingValue">4.5</span> з 5 на основі 
+        <span property="reviewCount">80</span> відгуків
+    </span></p>
+</div>
+
+<!-- Microdata -->
+<div itemscope itemtype="http://schema.org/Book">
+    <h2 itemprop="name">Мистецтво війни</h2>
+    <p>Автор: <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Сунь Цзи</span>
+    </span></p>
+    <p>Жанр: <span itemprop="genre">Військова стратегія</span></p>
+    <p>Дата публікації: <time itemprop="datePublished" datetime="2021-01-01">1 січня 2021</time></p>
+    <p>Ціна: <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <span itemprop="priceCurrency" content="UAH">₴</span><span itemprop="price">120.00</span>
+    </span></p>
+    <p>Рейтинг: <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        <span itemprop="ratingValue">4.5</span> з 5 на основі 
+        <span itemprop="reviewCount">80</span> відгуків
+    </span></p>
+</div>
+
+</body>
+</html>
